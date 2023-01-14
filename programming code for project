@@ -1,0 +1,100 @@
+number 1 <<<Using OpenCV to process traffic video feed:
+
+
+
+import cv2
+
+# read video feed
+cap = cv2.VideoCapture("traffic.mp4")
+
+while True:
+    # read frame
+    ret, frame = cap.read()
+
+    # process frame (e.g. detect vehicles, count number of vehicles, etc.)
+
+    # display processed frame
+    cv2.imshow("Traffic", frame)
+
+    # exit loop if 'q' key pressed
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# release resources
+cap.release()
+cv2.destroyAllWindows()
+
+
+
+
+
+
+
+
+
+number 2<<<<<<Using Tensorflow for machine learning:
+
+
+import tensorflow as tf
+
+# create model
+model = tf.keras.Sequential()
+model.add(tf.keras.layers.Dense(64, activation='relu'))
+model.add(tf.keras.layers.Dense(64, activation='relu'))
+model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
+
+# compile model
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# train model
+model.fit(X_train, y_train, epochs=10)
+
+# evaluate model
+val_loss, val_acc = model.evaluate(X_val, y_val)
+print(val_loss, val_acc)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+number 3<<<<<Using Google Maps API to get traffic data and routing
+
+
+
+import requests
+
+# request traffic data for a specific location
+location = "New York City"
+url = f"https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins={location}&destinations={location}&traffic_model=best_guess&key={API_KEY}"
+response = requests.get(url)
+data = response.json()
+
+# print traffic data
+print(data)
+
+# request routing information
+url = f"https://maps.googleapis.com/maps/api/directions/json?origin={origin}&destination={destination}&key={API_KEY}"
+response = requests.get(url)
+data = response.json()
+
+# print routing information
+print(data)
